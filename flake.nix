@@ -29,7 +29,8 @@
         defaultPackage = naersk'.buildPackage {
           src = ./.;
           doCheck = true;
-          nativeBuildInputs = with pkgs; [ pkgsStatic.stdenv.cc ];
+          nativeBuildInputs = with pkgs; [ pkgsStatic.stdenv.cc pkg-config ];
+          buildInputs = with pkgs; [ pkgsStatic.openssl ];
 
           # Tells Cargo that we're building for musl.
           # (https://doc.rust-lang.org/cargo/reference/config.html#buildtarget)
